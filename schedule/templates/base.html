@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Roboto&family=Rouge+Script&family=Work+Sans:wght@300&display=swap');
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Class Scheduling App</a>
+        <form class="form-inline">
+          <button class="btn btn-primary" type="submit">Start Application</button>
+        </form>
+      </nav>
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>
