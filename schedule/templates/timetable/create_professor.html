@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p></p><br><br>
-    <form action="" method="post">
+<div class="container mt-5">
+    <h2>Create Professor</h2>
+    <form action="" method="post" class="mt-4">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Create course</button>
-
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">Name:</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.courses_taught.id_for_label }}">Courses Taught:</label>
+            {{ form.courses_taught }}
+        </div>
+        <button type="submit" class="btn btn-primary">Create Professor</button>
     </form>
+</div>
 {% endblock %}

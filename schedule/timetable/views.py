@@ -1,7 +1,7 @@
 from typing import Any
 from django.db import models
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView
 from django.views import View
 from django.views.generic import ListView, UpdateView, DeleteView
@@ -15,7 +15,7 @@ class IndexView(TemplateView):
 class CreateCourseView(View):
     template_name = 'timetable/create_course.html'
     form_class = CourseForm
-    success_url = '/'
+    success_url = '/create-course'
 
     def get(self, request):
         form = self.form_class()
@@ -35,7 +35,7 @@ class CreateCourseView(View):
 class CreateProfessorView(View):
     template_name = 'timetable/create_professor.html'
     form_class = ProfessorForm
-    success_url = '/'
+    success_url = '/create-professor'
 
     def get(self, request):
         form = self.form_class()
@@ -56,7 +56,7 @@ class CreateProfessorView(View):
 class CreateClassroomView(View):
     template_name = 'timetable/create_classroom.html'
     form_class = ClassroomForm
-    success_url = '/'
+    success_url = '/create-classroom'
 
     def get(self, request):
         form = self.form_class()
@@ -77,7 +77,7 @@ class CreateClassroomView(View):
 class CreateTimeSlotView(View):
     template_name = 'timetable/create_timeslot.html'
     form_class = TimeSlotForm
-    success_url = '/'
+    success_url = '/create-timeslot'
 
     def get(self, request):
         form = self.form_class()
@@ -104,25 +104,29 @@ class CourseUpdateView(UpdateView):
     
 class CourseDeleteView(DeleteView):
     model = Course
-    fields = '__all__'
-    template_name = 'timetable/create_course.html'
+    success_url = reverse_lazy('all_data') 
 
-    def get_success_url(self):
-        return reverse('all_data')
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return redirect(self.get_success_url())
 
 class ProfessorUpdateView(UpdateView):
     model = Professor
     fields = ['name', 'courses_taught']
     template_name = 'timetable/create_professor.html'
-    def get_success_url(self) -> str:
+    def get_success_url(self):
         return reverse('all_data')
     
 class ProfessorDeleteView(DeleteView):
     model = Professor
-    template_name = 'timetable/create_professor.html'
+    success_url = reverse_lazy('all_data') 
 
-    def get_success_url(self) -> str:
-        return reverse('all_data')
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return redirect(self.get_success_url())
+
     
 class ClassroomUpdateView(UpdateView):
     model = Classroom
@@ -134,10 +138,12 @@ class ClassroomUpdateView(UpdateView):
     
 class ClassroomDeleteView(DeleteView):
     model = Classroom
-    template_name = 'timetable/create_classroom.html'
+    success_url = reverse_lazy('all_data') 
 
-    def get_success_url(self) -> str:
-        return reverse('all_data')
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return redirect(self.get_success_url())
     
 class TimeSlotUpdateView(UpdateView):
     model = TimeSlot
@@ -149,10 +155,12 @@ class TimeSlotUpdateView(UpdateView):
     
 class TimeSlotDeleteView(DeleteView):
     model = TimeSlot
-    template_name = 'timetable/create_timeslot.html'
+    success_url = reverse_lazy('all_data') 
 
-    def get_success_url(self) -> str:
-        return reverse('all_data')
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return redirect(self.get_success_url())
     
 class AllDataView(View):
     template_name = 'timetable/all_data.html'
