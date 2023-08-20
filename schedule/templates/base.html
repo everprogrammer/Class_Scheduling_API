@@ -13,13 +13,15 @@
 </head>
 <body>
     <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Class Scheduling App</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Class Scheduling App</a>
         <form class="form-inline">
-          <button class="btn btn-primary" type="submit">Start Application</button>
+          <a href="{% url 'all_data' %}" class="btn btn-primary">Start Application</a>
         </form>
       </nav>
     {% block content %}
     {% endblock %}
+
+
     
 </body>
 </html>

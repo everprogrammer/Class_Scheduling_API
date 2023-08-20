@@ -121,7 +121,36 @@ class ProfessorDeleteView(DeleteView):
     model = Professor
     template_name = 'timetable/create_professor.html'
 
+    def get_success_url(self) -> str:
+        return reverse('all_data')
     
+class ClassroomUpdateView(UpdateView):
+    model = Classroom
+    fields = '__all__'
+    template_name = 'timetable/create_classroom.html'
+
+    def get_success_url(self) -> str:
+        return reverse('all_data')
+    
+class ClassroomDeleteView(DeleteView):
+    model = Classroom
+    template_name = 'timetable/create_classroom.html'
+
+    def get_success_url(self) -> str:
+        return reverse('all_data')
+    
+class TimeSlotUpdateView(UpdateView):
+    model = TimeSlot
+    fields = '__all__'
+    template_name = 'timetable/create_timeslot.html'
+
+    def get_success_url(self) -> str:
+        return reverse('all_data')
+    
+class TimeSlotDeleteView(DeleteView):
+    model = TimeSlot
+    template_name = 'timetable/create_timeslot.html'
+
     def get_success_url(self) -> str:
         return reverse('all_data')
     

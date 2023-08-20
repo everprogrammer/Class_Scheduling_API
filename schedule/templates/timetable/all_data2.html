@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>All Data</h2>
+  
+  <h3>Professors:</h3>
+  <ul>
+    {% for professor in professors %}
+      <li>
+        {{ professor.name }} ({{ professor.courses_taught }})
+        <a href="{% url 'update_professor' professor.pk %}">Edit</a>
+        <a href="{% url 'delete_professor' professor.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  <h3>Courses:</h3>
+  <ul>
+    {% for course in courses %}
+      <li>
+        {{ course.name }}
+        <a href="{% url 'update_course' course.pk %}">Edit</a>
+        <a href="{% url 'delete_course' course.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  <h3>Classrooms:</h3>
+  <ul>
+    {% for classroom in classrooms %}
+      <li>
+        {{ classroom.name }}
+        <a href="{% url 'update_classroom' classroom.pk %}">Edit</a>
+        <a href="{% url 'delete_classroom' classroom.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  <h3>Timeslots:</h3>
+  <ul>
+    {% for timeslot in timeslots %}
+      <li>
+        {{ timeslot.start_time }} - {{ timeslot.end_time }}
+        <a href="{% url 'update_timeslot' timeslot.pk %}">Edit</a>
+        <a href="{% url 'delete_timeslot' timeslot.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

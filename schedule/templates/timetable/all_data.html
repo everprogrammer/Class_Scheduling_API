@@ -1,47 +1,71 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>All Data</h2>
-  
-  <h3>Professors:</h3>
-  <ul>
-    {% for professor in professors %}
-      <li>
-        {{ professor.name }} ({{ professor.courses_taught }})
-        <a href="{% url 'update_professor' professor.pk %}">Edit</a>
-        <a href="{% url 'delete_professor' professor.pk %}">Delete</a>
-      </li>
-    {% endfor %}
-  </ul>
-  
-  <h3>Courses:</h3>
-  <ul>
-    {% for course in courses %}
-      <li>
-        {{ course.name }}
-        <a href="{% url 'update_course' course.pk %}">Edit</a>
-        <a href="{% url 'delete_course' course.pk %}">Delete</a>
-      </li>
-    {% endfor %}
-  </ul>
-  
-  <h3>Classrooms:</h3>
-  <ul>
-    {% for classroom in classrooms %}
-      <li>
-        {{ classroom.name }}
-        <!-- Add edit and delete links for classrooms -->
-      </li>
-    {% endfor %}
-  </ul>
-  
-  <h3>Timeslots:</h3>
-  <ul>
-    {% for timeslot in timeslots %}
-      <li>
-        {{ timeslot.start_time }} - {{ timeslot.end_time }}
-        <!-- Add edit and delete links for timeslots -->
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="container"><br><br>
+    <h2>All Data</h2><br><br>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Professors</h3>
+        <ul class="list-group">
+          {% for professor in professors %}
+            <li class="list-group-item">
+              {{ professor.name }} ({{ professor.courses_taught }})
+              <a href="{% url 'update_professor' professor.pk %}" class="btn btn-sm btn-primary ml-2">Edit</a>
+              <a href="{% url 'delete_professor' professor.pk %}" class="btn btn-sm btn-danger ml-2">Delete</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <a href="{% url 'create-professor' %}" class="btn btn-sm btn-primary mt-2">Create New Professor</a>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h3>Courses</h3>
+        <ul class="list-group">
+          {% for course in courses %}
+            <li class="list-group-item">
+              {{ course.name }}
+              <a href="{% url 'update_course' course.pk %}" class="btn btn-sm btn-primary ml-2">Edit</a>
+              <a href="{% url 'delete_course' course.pk %}" class="btn btn-sm btn-danger ml-2">Delete</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <a href="{% url 'create-course' %}" class="btn btn-sm btn-primary mt-2">Create New Course</a>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h3>Classrooms</h3>
+        <ul class="list-group">
+          {% for classroom in classrooms %}
+            <li class="list-group-item">
+              {{ classroom.name }}
+              <a href="{% url 'update_classroom' classroom.pk %}" class="btn btn-sm btn-primary ml-2">Edit</a>
+              <a href="{% url 'delete_classroom' classroom.pk %}" class="btn btn-sm btn-danger ml-2">Delete</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <a href="{% url 'create-classroom' %}" class="btn btn-sm btn-primary mt-2">Create New Classroom</a>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h3>Timeslots</h3>
+        <ul class="list-group">
+          {% for timeslot in timeslots %}
+            <li class="list-group-item">
+              {{ timeslot.start_time }} - {{ timeslot.end_time }}
+              <a href="{% url 'update_timeslot' timeslot.pk %}" class="btn btn-sm btn-primary ml-2">Edit</a>
+              <a href="{% url 'delete_timeslot' timeslot.pk %}" class="btn btn-sm btn-danger ml-2">Delete</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <a href="{% url 'create-timeslot' %}" class="btn btn-sm btn-primary mt-2">Create New Timeslot</a>
+      </div>
+    </div>
+  </div><br><br>
 {% endblock %}
