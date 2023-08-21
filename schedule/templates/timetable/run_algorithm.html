@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h1 class="text-center">Algorithm Results</h1>
+                </div>
+                <div class="card-body">
+                    <pre class="algorithm-output">
+                        {{ captured_output | safe }}
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Additional styling for the pre element */
+    .algorithm-output {
+        background-color: #f8f9fa; /* Light gray background */
+        border: 1px solid #ced4da; /* Light gray border */
+        padding: 15px;
+        white-space: pre-wrap; /* Preserve whitespace */
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}

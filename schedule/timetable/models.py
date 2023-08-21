@@ -11,7 +11,7 @@ class Course(models.Model):
 
 class Professor(models.Model):
     name = models.CharField(max_length=100)
-    courses_taught = models.ForeignKey(Course, on_delete=models.CASCADE)
+    courses_taught = models.ManyToManyField(Course)
 
     def __str__(self):
         return f"{self.name} especializes at {self.courses_taught}"
@@ -34,3 +34,6 @@ class Classroom(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def full_timeslot(self):
+        return f'{self.start_time}-{self.end_time}'

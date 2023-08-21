@@ -1,4 +1,6 @@
 from typing import Any
+import sys
+import io
 from django.db import models
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
@@ -7,6 +9,7 @@ from django.views import View
 from django.views.generic import ListView, UpdateView, DeleteView
 from .models import Course, Professor, Classroom, TimeSlot
 from .forms import CourseForm, ProfessorForm, ClassroomForm, TimeSlotForm
+from .algorithm import main
 
 # Create your views here.
 class IndexView(TemplateView):
@@ -177,5 +180,24 @@ class AllDataView(View):
             'classrooms': classrooms,
             'timeslots': timeslots,
         })
+    
+def algorithm_view(request):
+    # Capture the printed output
+    old_stdout = sys.stdout
+    new_stdout = io.StringIO()
+    sys.stdout = new_stdout
+
+    # Call the main funciton from the algorithm
+    main()
+
+    sys.stdout = old_stdout
+    captured_output = new_stdout.getvalue()
+
+    context = {
+        'captured_output': captured_output,
+    }
+
+    return render(request, 'timetable/run_algorithm.html', context)
+
     
     

@@ -1,1 +1,0 @@
-from .models import Course, Professor, Classroom, TimeSlot

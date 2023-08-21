@@ -16,4 +16,5 @@ urlpatterns = [
     path('update_timeslot/<int:pk>', views.TimeSlotUpdateView.as_view(), name='update_timeslot'),
     path('delete_timeslot/<int:pk>', views.TimeSlotDeleteView.as_view(), name='delete_timeslot'),
     path('all-data/', views.AllDataView.as_view(), name='all_data'),
+    path('run-algorithm/', views.algorithm_view, name='run_algorithm'),
 ]

@@ -1,7 +1,80 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Welcome to class scheduling application</h1><br><br>
-    <h3>Please read below</h3><br><br>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo error id voluptatibus, enim sed eius dolorum repellendus quam, voluptates molestiae saepe sint repudiandae vitae nulla laboriosam, voluptatum at ipsam illum?</p>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="card p-4">
+          <h1 class="card-title text-center">Welcome to the Class Scheduling Application</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-12">
+        <div class="card p-4">
+          <h3 class="card-subtitle text-center">Please Read Below</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-12">
+        <div class="card p-4">
+          <p class="card-text text-center">
+            In the modern educational landscape, efficient class scheduling is a crucial aspect for educational institutions.
+          It involves assigning courses, professors, classrooms, and timeslots to create a balanced and optimal timetable
+          that meets the needs of both students and faculty. Traditional methods of scheduling are often time-consuming
+          and complex due to various constraints and preferences. To tackle this challenge, we introduce a Class
+          Scheduling Application that employs a Genetic Algorithm implemented using the DEAP library to automate and
+          optimize the scheduling process.
+        </p>
+      </div>
+    </div>
+
+    <div class="card p-4 mt-4">
+      <div class="card-body">
+        <h3 class="card-subtitle text-center">Overview of the Application:</h3><br><br>
+        <ol class="card-text">
+          <li><strong>Course Definition and Entry:</strong> Users start by defining the courses offered by the
+            institution. Each course is characterized by its name, required duration, and any associated constraints,
+            such as prerequisites or preferred timeslots. The application allows users to enter course details through
+            an intuitive interface.</li>
+          <li><strong>Professor Assignment:</strong> Professors are then assigned to the courses based on their
+            expertise. Users input the list of professors along with their availability, preferences, and
+            specialization areas. The Genetic Algorithm aims to allocate professors to courses in a way that optimally
+            distributes the teaching load and respects their preferences.</li>
+          <li><strong>Classroom Allocation:</strong> Classrooms are added to the system, along with their seating
+            capacity and available facilities. The application ensures that classrooms are efficiently utilized by
+            assigning courses that fit their capacity and requirements. Constraints such as course type (lecture, lab)
+            and equipment availability are considered during this process.</li>
+          <li><strong>Timeslot Assignment:</strong> Timeslots represent the available time intervals for conducting
+            classes. Users define the time slots for each day, considering the institution's schedule. The Genetic
+            Algorithm then strategically assigns timeslots to courses, professors, and classrooms, aiming to minimize
+            conflicts and gaps in the timetable.</li>
+          <li><strong>Genetic Algorithm Implementation:</strong> The core of the application lies in the Genetic
+            Algorithm, which uses the DEAP library to evolve and optimize the class schedule. The algorithm starts
+            with an initial population of schedules and iteratively applies selection, crossover, and mutation
+            operations to create new generations of schedules. The fitness function evaluates each schedule based on
+            factors such as course distribution, professor preferences, classroom availability, and timeslot clashes.</li>
+          <li><strong>Optimization and Evaluation:</strong> The Genetic Algorithm iterates through multiple
+            generations, gradually improving the quality of schedules. The application provides tools to visualize and
+            evaluate different schedules, allowing users to assess the trade-offs and make informed decisions. Users
+            can analyze the fitness score and the distribution of classes across timeslots and classrooms.</li>
+          <li><strong>Final Schedule Generation:</strong> Once an optimal schedule is achieved, users can generate the
+            final timetable. The application provides the scheduled courses, professors, classrooms, and timeslots in a
+            user-friendly format, ready to be shared with students and faculty.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card p-4 mt-4">
+      <div class="card-body">
+        <h3 class="card-subtitle text-center">Conclusion:</h3><br><br>
+        <p class="card-text">
+          The Class Scheduling Application using the Genetic Algorithm in the DEAP library changes the way
+          educational institutions handle the complex task of class scheduling. By automating the process and
+          considering various constraints and preferences, the application streamlines scheduling operations and
+          reduces manual effort. The ability to optimize the distribution of courses, professors, classrooms, and
+          timeslots ultimately leads to a more efficient and balanced academic environment.
+          </p>
+      </div>
 {% endblock %}
