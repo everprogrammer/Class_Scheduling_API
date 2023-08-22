@@ -55,23 +55,23 @@ The core of the application uses the Genetic Algorithm from the DEAP library.
 ### [Optimizing the Algorithm](#optimizing-the-algorithm)
 1. The Genetic Algorithm's efficiency can be influenced by hyperparameters:
 
-`POPULATION_SIZE`
-`P_CROSSOVER`
-`P_MUTATION`
-`MAX_GENERATIONS`
-Selection method
-Mutation method
-Mutation probability
+- `POPULATION_SIZE`
+- `P_CROSSOVER`
+- `P_MUTATION`
+- `MAX_GENERATIONS`
+- `Selection method`
+- `Mutation method`
+- `Mutation probability`
 
 2.Default values are set to:
 
-`Population size`: [default value=500]
-`Crossover probability`: [default value=0.9]
-`Mutation probability`: [default value=0.1]
-`Max generations`: [default value=50]
-`Selection method`: Tournament (size = 3)
-`Mutation method`: TwoPoint
-`Mutation probability`: 10%
+- `Population size`: [default value=500]
+- `Crossover probability`: [default value=0.9]
+- `Mutation probability`: [default value=0.1]
+- `Max generations`: [default value=50]
+- `Selection method`: Tournament (size = 3)
+- `Mutation method`: TwoPoint
+- `Mutation probability`: 10%
 
 Adjust these hyperparameters as needed for better results.
 
@@ -83,12 +83,12 @@ Adjust these hyperparameters as needed for better results.
         - Iterating the algorithm multiple times to explore different solutions.
     `Note`: This is a basic class scheduling application. If satisfied, use the generated schedule; otherwise, you can run the algorithm multiple times for better results. Keep in mind that the Genetic Algorithm's effectiveness depends on the problem's nature, so adjusting hyperparameters might be necessary.
 
-    For any inquiries or support, please contact amir.tavakolian68@gmail.com
+    - For any inquiries or support, please contact amir.tavakolian68@gmail.com
 
 ### [Donation](#donation)
 Buy us a coffee if you like!
 
-Bitcoin Address: bc1qtx4wmyyv8rptyw0khm8vxacxly2v4f82pc6lad
-USDT Address: TJ9FPugsuvGh8xzcDqhKZvGKz6jbPmwvvo
+- Bitcoin Address: bc1qtx4wmyyv8rptyw0khm8vxacxly2v4f82pc6lad
+- USDT Address: TJ9FPugsuvGh8xzcDqhKZvGKz6jbPmwvvo
 
 Your support is greatly appreciated!
